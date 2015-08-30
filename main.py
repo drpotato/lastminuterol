@@ -14,24 +14,6 @@ __author__ = 'Chris Morgan'
 
 CHAIN_KEY = 'chain'
 
-HTML = """
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Last Minute RoL</title>
-</head>
-<body>
-<h2>Submission</h2>
-<p>Submitted RoLs are used to generate new, awesomer RoLs on Thursday mornings.</p>
-<form action="/" method="post">
-    <textarea id="rol" name="rol" cols=80 rows=20></textarea>
-    <button type="submit">Submit</button>
-</form>
-</body>
-</html>
-"""
-
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), 'templates')),
     extensions=['jinja2.ext.autoescape'],
@@ -45,7 +27,8 @@ class ROL(ndb.Model):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write(generate_rol())
+        template = JINJA_ENVIRONMENT.get_template('index.jinja2')
+        self.response.write(template.render({'rol': generate_rol()}))
 
     def post(self):
         rol = self.request.get('rol')
@@ -68,7 +51,8 @@ class MainHandler(webapp2.RequestHandler):
 class SubmissionHandler(webapp2.RequestHandler):
 
     def get(self):
-        self.response.write(HTML)
+        template = JINJA_ENVIRONMENT.get_template('submit.jinja2')
+        self.response.write(template.render())
 
 
 class AdminViewHandler(webapp2.RequestHandler):
