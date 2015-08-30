@@ -8,7 +8,7 @@ var paths = {
   sass: './styles/**/*.scss',
   staticOut: './static',
   styles: './static/styles',
-  bower: ['bower_components/**/*.css', 'bower_components/**/*.js']
+  bower: ['bower_components/**/dist/**/*.css', 'bower_components/**/dist/**/*.js']
 };
 
 gulp.task('sass', function () {
