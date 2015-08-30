@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Submit - Last Minute RoL</title>
-</head>
-<body>
-<h2>Submission</h2>
-<p>Submitted RoLs are used to generate new, awesomer RoLs on Thursday mornings.</p>
-<form action="/" method="post">
-    <textarea id="rol" name="rol" cols=80 rows=20></textarea>
-    <button type="submit">Submit</button>
-</form>
-</body>
-</html>
+{% extends 'base.jinja2' %}
+{% block title %}Submit{% endblock %}
+{% block content %}
+  <div class="ui vertical stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="sixteen wide column">
+          <h2>Submission</h2>
+          <p>Submitted RoLs are used to generate new, awesomer RoLs on Thursday mornings.</p>
+
+          <form action="/" method="post" class="ui form">
+            <div class="field">
+              <textarea id="rol" name="rol" cols=80 rows=20></textarea>
+            </div>
+            <div class="field">
+              <button class="ui button" type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

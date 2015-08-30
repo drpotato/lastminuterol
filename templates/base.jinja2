@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+    <meta charset="UTF-8">
+    <title>
+      {% block title %}{% endblock %}
+      {% if self.title() %} - {% endif %}
+      Last Minute RoL
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/semantic-ui/dist/semantic.css">
+    <link rel="stylesheet" type="text/css" href="/static/styles/main.css">
+    <script src="/static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/static/bower_components/semantic-ui/dist/semantic.js"></script>
+
+  {% endblock %}
+</head>
+<body>
+<div class="ui large top fixed menu">
+  <div class="ui container">
+    <a href="/" class="brand item">Last Minute RoL</a>
+    <a href="/submit" class="item">Submit</a>
+  </div>
+</div>
+<div class="ui container">
+  {% block content %}{% endblock %}
+</div>
+</body>
+</html>
